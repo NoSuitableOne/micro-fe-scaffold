@@ -1,0 +1,88 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+out/
+.output/
+.nuxt/
+.next/
+.vercel/
+.netlify/
+
+# Angular
+.angular/
+out-tsc/
+bazel-out/
+
+# Vite / bundlers
+*.local
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# Test & coverage
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Cache
+.turbo/
+.cache/
+.eslintcache
+.stylelintcache
+.parcel-cache
+.sass-cache/
+*.swp
+*.swo
+
+# IDE & editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.history/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Misc
+*.pem
+.connect.lock
+/libpeerconnection.log
+testem.log
+typings/

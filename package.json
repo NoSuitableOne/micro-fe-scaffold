@@ -1,0 +1,23 @@
+{
+  "name": "micro-fe",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Micro-frontend integration exploration monorepo",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:vue": "pnpm --filter @micro-fe/vue-app dev",
+    "dev:react": "pnpm --filter @micro-fe/react-app dev",
+    "dev:angular": "pnpm --filter @micro-fe/angular-app dev",
+    "dev:svelte": "pnpm --filter @micro-fe/svelte-app dev",
+    "build": "pnpm -r build",
+    "build:vue": "pnpm --filter @micro-fe/vue-app build",
+    "build:react": "pnpm --filter @micro-fe/react-app build",
+    "build:angular": "pnpm --filter @micro-fe/angular-app build",
+    "build:svelte": "pnpm --filter @micro-fe/svelte-app build",
+    "preview": "pnpm -r --parallel preview"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
