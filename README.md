@@ -7,6 +7,7 @@
 ```
 micro-fe/
 ├── apps/
+│   ├── shell-app/     # Shell 基座 · Import Maps + Native ESM
 │   ├── vue-app/       # Vue 3 + Vite
 │   ├── react-app/     # React 19 + Vite
 │   ├── angular-app/   # Angular 19
@@ -27,15 +28,21 @@ micro-fe/
 # 安装依赖
 pnpm install
 
-# 并行启动全部子应用
-pnpm dev
+# 并行启动：先起四个子应用，待端口就绪后再起 Shell（避免 import 404）
+pnpm dev:all
 
-# 或单独启动
+# 或仅子应用 / 仅 Shell
+pnpm dev:apps     # 四个子应用
+pnpm dev:shell    # http://localhost:5100
+
+# 单独启动
 pnpm dev:vue      # http://localhost:5173
 pnpm dev:react    # http://localhost:5174
 pnpm dev:angular  # http://localhost:4200
 pnpm dev:svelte   # http://localhost:5175
 ```
+
+访问 **http://localhost:5100**，通过顶栏导航切换子应用。Import Map 见 `apps/shell-app/public/importmap.json`。
 
 ## 构建
 
@@ -68,15 +75,17 @@ pnpm build:svelte   # 仅构建 Svelte
 
 | 应用 | 端口 | 建议路由前缀 |
 |------|------|-------------|
+| **Shell** | **5100** | `/` |
 | Vue | 5173 | `/vue` |
 | React | 5174 | `/react` |
 | Angular | 4200 | `/angular` |
 | Svelte | 5175 | `/svelte` |
 
-Vite 子应用已开启 `cors: true`，便于后续基座跨域加载。
+Shell 通过 Import Map 加载子应用：Vite 子应用指向 `src/micro-app.ts`；Angular 指向 `main.js`（Shell 会先加载 `polyfills.js`）。**修改 Angular 静态资源后需重启 `ng serve`。**
 
 ## 下一步
 
-- [ ] 创建主应用（Shell / 基座）
-- [ ] 接入 qiankun / micro-app / Module Federation 等方案做 POC
+- [x] 创建 Shell 基座（Import Maps + 原生 ESM）
+- [ ] 子应用 ESM library build（`dist/micro-app.js`，生产 import map）
+- [x] Angular 跨域 ESM 加载（`public/micro-app.js` 桥接）
 - [ ] 按 [微前端框架路线图与里程碑](./docs/微前端框架路线图与里程碑.md) 推进集成验证

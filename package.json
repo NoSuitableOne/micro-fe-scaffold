@@ -5,6 +5,9 @@
   "description": "Micro-frontend integration exploration monorepo",
   "scripts": {
     "dev": "pnpm -r --parallel dev",
+    "dev:shell": "pnpm --filter @micro-fe/shell-app dev",
+    "dev:apps": "pnpm -r --parallel --filter @micro-fe/vue-app --filter @micro-fe/react-app --filter @micro-fe/svelte-app --filter @micro-fe/angular-app dev",
+    "dev:all": "concurrently -k -n apps,shell -c blue,magenta \"pnpm dev:apps\" \"wait-on -l -t 120000 tcp:127.0.0.1:5173 tcp:127.0.0.1:5174 tcp:127.0.0.1:5175 tcp:127.0.0.1:4200 && pnpm dev:shell\"",
     "dev:vue": "pnpm --filter @micro-fe/vue-app dev",
     "dev:react": "pnpm --filter @micro-fe/react-app dev",
     "dev:angular": "pnpm --filter @micro-fe/angular-app dev",
@@ -14,10 +17,15 @@
     "build:react": "pnpm --filter @micro-fe/react-app build",
     "build:angular": "pnpm --filter @micro-fe/angular-app build",
     "build:svelte": "pnpm --filter @micro-fe/svelte-app build",
+    "build:shell": "pnpm --filter @micro-fe/shell-app build",
     "preview": "pnpm -r --parallel preview"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@9.15.0"
+  "packageManager": "pnpm@9.15.0",
+  "devDependencies": {
+    "concurrently": "^9.2.3",
+    "wait-on": "^8.0.5"
+  }
 }

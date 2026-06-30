@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@micro-fe/vue-app": "/apps/vue-app/dist/micro-app.js",
+    "@micro-fe/react-app": "/apps/react-app/dist/micro-app.js",
+    "@micro-fe/svelte-app": "/apps/svelte-app/dist/micro-app.js",
+    "@micro-fe/angular-app": "/apps/angular-app/dist/angular-app/browser/main.js"
+  }
+}

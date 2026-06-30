@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>micro-fe Shell</title>
+    <link rel="icon" href="data:," />
+    <!-- Import Map：开发态指向各子应用 dev server，见 public/importmap.json -->
+    <script type="importmap" src="/importmap.json"></script>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="shell">
+      <header class="shell-header">
+        <div class="shell-header__brand">
+          <strong>micro-fe</strong>
+          <span class="shell-header__tag">Shell · Import Maps + Native ESM</span>
+        </div>
+        <nav class="shell-nav" aria-label="子应用导航">
+          <a href="/" data-link>首页</a>
+          <a href="/vue" data-link>Vue</a>
+          <a href="/react" data-link>React</a>
+          <a href="/svelte" data-link>Svelte</a>
+          <a href="/angular" data-link>Angular</a>
+        </nav>
+      </header>
+
+      <main class="shell-main">
+        <section id="shell-home" class="shell-home" hidden>
+          <h1>微前端 Shell 基座</h1>
+          <p>
+            通过 <code>&lt;script type="importmap"&gt;</code> 映射模块别名，使用原生
+            <code>import()</code> 加载子应用并调用 <code>bootstrap / mount / unmount</code>。
+          </p>
+          <ul class="shell-home__list">
+            <li>Shell 端口：<code>5100</code></li>
+            <li>Import Map 配置：<code>public/importmap.json</code></li>
+            <li>请先并行启动各子应用 dev server，再点击上方导航切换</li>
+          </ul>
+        </section>
+
+        <div id="micro-app-status" class="micro-app-status" hidden></div>
+        <div id="micro-app-container" class="micro-app-container"></div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

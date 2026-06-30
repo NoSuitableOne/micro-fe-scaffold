@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@micro-fe/vue-app": "http://127.0.0.1:5173/src/micro-app.ts",
+    "@micro-fe/react-app": "http://127.0.0.1:5174/src/micro-app.ts",
+    "@micro-fe/svelte-app": "http://127.0.0.1:5175/src/micro-app.ts",
+    "@micro-fe/angular-app": "http://127.0.0.1:4200/main.js"
+  }
+}
